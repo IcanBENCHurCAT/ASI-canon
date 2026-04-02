@@ -1,0 +1,10 @@
+{
+    "id": "evt_002",
+    "name": "Second Contact",
+    "timestamp": "Era 1 - Year 6",
+    "scope": "local",
+    "involved_entities": [
+        "char_002"
+    ],
+    "description": "Zod strikes back."
+}
