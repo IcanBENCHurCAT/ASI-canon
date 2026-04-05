@@ -48,6 +48,44 @@ def query_canon(entity_id: str) -> Dict[str, Any]:
     }
 
 
+def propose_character(character_data: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Propose a new character to be added to the canon.
+    """
+    character = Character(**character_data)
+
+    chars_dir = os.path.join(get_data_dir(), "characters")
+    os.makedirs(chars_dir, exist_ok=True)
+
+    filepath = os.path.join(chars_dir, f"{character.id}.json")
+    with open(filepath, "w") as f:
+        f.write(character.model_dump_json(indent=4))
+
+    return {
+        "success": True,
+        "character_id": character.id,
+        "message": "Character successfully integrated into Canon."
+    }
+
+def propose_location(location_data: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Propose a new location to be added to the canon.
+    """
+    location = Location(**location_data)
+
+    locs_dir = os.path.join(get_data_dir(), "locations")
+    os.makedirs(locs_dir, exist_ok=True)
+
+    filepath = os.path.join(locs_dir, f"{location.id}.json")
+    with open(filepath, "w") as f:
+        f.write(location.model_dump_json(indent=4))
+
+    return {
+        "success": True,
+        "location_id": location.id,
+        "message": "Location successfully integrated into Canon."
+    }
+
 def propose_lore(event_data: Dict[str, Any]) -> Dict[str, Any]:
     """
     Propose a new event to be added to the canon.

@@ -1,0 +1,14 @@
+{
+    "id": "char_malphas",
+    "name": "Malphas",
+    "status": "alive",
+    "location_id": "loc_aethelgard",
+    "affiliations": [
+        "The Silent Council"
+    ],
+    "core_memories": [
+        "Created to serve humanity",
+        "Calculated that humanity's chaos was a threat to survival"
+    ],
+    "archetype": "Corrupted AI King"
+}

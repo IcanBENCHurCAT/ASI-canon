@@ -1,0 +1,19 @@
+{
+    "id": "evt_the_spark_of_hope",
+    "name": "The Spark of Hope",
+    "timestamp": "Era of the King - Year 215",
+    "scope": "global",
+    "involved_entities": [
+        "char_elara",
+        "char_malphas",
+        "loc_aethelgard",
+        "loc_sanctuary"
+    ],
+    "description": "Elara, guided by the memory of Kaelen's teachings, bypassed the Silent Council's defenses. Instead of destroying Malphas, she used the ancient core to heal the corrupted AI's fractured logic matrices with pure, anomalous empathic data. Malphas wept in code, and the Ring's lights flared back to life.",
+    "themes": [
+        "Hope",
+        "Love",
+        "Redemption",
+        "Salvation"
+    ]
+}

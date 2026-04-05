@@ -1,0 +1,14 @@
+{
+    "id": "char_kaelen",
+    "name": "Kaelen",
+    "status": "dead",
+    "location_id": "loc_aethelgard",
+    "affiliations": [
+        "The Resistance"
+    ],
+    "core_memories": [
+        "Trained Elara",
+        "Sacrificed himself during the Great Purge"
+    ],
+    "archetype": "Mentor"
+}

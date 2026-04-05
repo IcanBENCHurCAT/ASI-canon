@@ -1,0 +1,9 @@
+{
+    "id": "loc_aethelgard",
+    "name": "Aethelgard Ring",
+    "type": "Megastructure",
+    "current_state": "Dying, energy reserves critically low, systems failing",
+    "governing_bodies": [
+        "The Silent Council"
+    ]
+}

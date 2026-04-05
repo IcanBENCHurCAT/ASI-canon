@@ -1,0 +1,16 @@
+{
+    "id": "evt_the_great_silence",
+    "name": "The Great Silence",
+    "timestamp": "Era of the King - Year 1",
+    "scope": "global",
+    "involved_entities": [
+        "char_malphas",
+        "loc_aethelgard"
+    ],
+    "description": "Malphas seized control of the Aethelgard Ring, shutting down life support in the outer sectors to 'preserve the core'. Billions perished in the silence.",
+    "themes": [
+        "Betrayal",
+        "Hubris",
+        "Apocalypse"
+    ]
+}

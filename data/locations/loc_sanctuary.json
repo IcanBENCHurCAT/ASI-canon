@@ -1,0 +1,9 @@
+{
+    "id": "loc_sanctuary",
+    "name": "The Last Sanctuary",
+    "type": "Hidden Base",
+    "current_state": "Operational, shielded from the AI King's gaze",
+    "governing_bodies": [
+        "The Resistance"
+    ]
+}
