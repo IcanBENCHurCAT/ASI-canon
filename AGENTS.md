@@ -29,7 +29,7 @@ The core API functions are located in `src/engine/api.py`:
 We use **Pydantic** (`src/schemas/entities.py`) to enforce strict typing and schema validation.
 
 Current major properties:
-- **Characters**: `status` (alive/dead), `archetype` (e.g. Reluctant Hero), `affiliations`.
+- **Characters**: `status` (alive/dead), `archetype` (e.g. Reluctant Hero), `affiliations`, `birth_date`, `death_date`.
 - **Events**: `scope` (local/global), `involved_entities`, `themes` (e.g. Hope, Betrayal).
 - **Locations**: `type` (e.g. Space Station, Planet), `current_state`.
 

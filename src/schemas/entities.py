@@ -17,6 +17,8 @@ class Character(BaseModel):
     affiliations: List[str] = Field(default_factory=list, description="List of organizations or groups")
     core_memories: List[str] = Field(default_factory=list, description="Key memories/events shaping the character")
     archetype: Optional[str] = Field(default=None, description="The traditional archetype this character embodies (e.g. Reluctant Hero, Mentor)")
+    birth_date: Optional[str] = Field(default=None, description="The era and year the character was born")
+    death_date: Optional[str] = Field(default=None, description="The era and year the character died, if applicable")
 
 
 class EventScope(str, Enum):

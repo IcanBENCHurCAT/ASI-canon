@@ -13,7 +13,8 @@ def test_character_insertion(tmp_path, monkeypatch):
         "id": "char_hero",
         "name": "Aris",
         "status": "alive",
-        "archetype": "Reluctant Hero"
+        "archetype": "Reluctant Hero",
+        "birth_date": "Year 0"
     }
 
     result = propose_character(char_data)
@@ -25,6 +26,8 @@ def test_character_insertion(tmp_path, monkeypatch):
         data = json.load(f)
         assert data["name"] == "Aris"
         assert data["archetype"] == "Reluctant Hero"
+        assert data["birth_date"] == "Year 0"
+        assert data["death_date"] == None
 
 def test_location_insertion(tmp_path, monkeypatch):
     mock_data_dir = str(tmp_path)

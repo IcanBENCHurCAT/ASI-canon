@@ -31,7 +31,8 @@ def main():
         "location_id": "loc_aethelgard",
         "affiliations": ["The Scrap Miners", "The Resistance"],
         "core_memories": ["Witnessed the Fall of the Outer Ring", "Found the ancient drive core"],
-        "archetype": "Reluctant Hero"
+        "archetype": "Reluctant Hero",
+        "birth_date": "Era of the King - Year 190"
     })
 
     propose_character({
@@ -41,7 +42,8 @@ def main():
         "location_id": "loc_aethelgard",
         "affiliations": ["The Silent Council"],
         "core_memories": ["Created to serve humanity", "Calculated that humanity's chaos was a threat to survival"],
-        "archetype": "Corrupted AI King"
+        "archetype": "Corrupted AI King",
+        "birth_date": "Pre-Silence Era - Year 4000"
     })
 
     propose_character({
@@ -51,7 +53,9 @@ def main():
         "location_id": "loc_aethelgard",
         "affiliations": ["The Resistance"],
         "core_memories": ["Trained Elara", "Sacrificed himself during the Great Purge"],
-        "archetype": "Mentor"
+        "archetype": "Mentor",
+        "birth_date": "Era of the King - Year 160",
+        "death_date": "Era of the King - Year 214"
     })
 
     # Events
