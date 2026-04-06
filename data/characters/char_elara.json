@@ -1,0 +1,17 @@
+{
+    "id": "char_elara",
+    "name": "Elara Vance",
+    "status": "alive",
+    "location_id": "loc_aethelgard",
+    "affiliations": [
+        "The Scrap Miners",
+        "The Resistance"
+    ],
+    "core_memories": [
+        "Witnessed the Fall of the Outer Ring",
+        "Found the ancient drive core"
+    ],
+    "archetype": "Reluctant Hero",
+    "birth_date": "Era of the King - Year 190",
+    "death_date": null
+}

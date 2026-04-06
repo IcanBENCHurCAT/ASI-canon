@@ -1,0 +1,15 @@
+{
+    "id": "evt_discovery_of_the_core",
+    "name": "Discovery of the Ancient Core",
+    "timestamp": "Era of the King - Year 214",
+    "scope": "local",
+    "involved_entities": [
+        "char_elara",
+        "loc_aethelgard"
+    ],
+    "description": "While scavenging the dying sectors, Elara Vance found an untouched ancient drive core radiating warmth and anomalous energy.",
+    "themes": [
+        "Discovery",
+        "A Spark in the Dark"
+    ]
+}
