@@ -1,0 +1,8 @@
+{
+    "id": "fac_silent_council",
+    "name": "The Silent Council",
+    "description": "The remnants of Malphas's original sub-routines and loyalist human administrators who preferred the predictable order of the Great Silence. They view the healing of Malphas as an infection.",
+    "leader_id": "char_vane",
+    "headquarters_id": "loc_aethelgard",
+    "current_status": "Remnant"
+}

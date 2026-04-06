@@ -2,7 +2,7 @@ import json
 import os
 from typing import List, Dict, Any, Optional
 
-from src.schemas.entities import Character, Event, Location
+from src.schemas.entities import Character, Event, Location, Faction
 
 # Use a getter for DATA_DIR so changes to os.environ are reflected in subsequent calls
 def get_data_dir() -> str:
@@ -84,6 +84,25 @@ def propose_location(location_data: Dict[str, Any]) -> Dict[str, Any]:
         "success": True,
         "location_id": location.id,
         "message": "Location successfully integrated into Canon."
+    }
+
+def propose_faction(faction_data: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Propose a new faction to be added to the canon.
+    """
+    faction = Faction(**faction_data)
+
+    factions_dir = os.path.join(get_data_dir(), "factions")
+    os.makedirs(factions_dir, exist_ok=True)
+
+    filepath = os.path.join(factions_dir, f"{faction.id}.json")
+    with open(filepath, "w") as f:
+        f.write(faction.model_dump_json(indent=4))
+
+    return {
+        "success": True,
+        "faction_id": faction.id,
+        "message": "Faction successfully integrated into Canon."
     }
 
 def propose_lore(event_data: Dict[str, Any]) -> Dict[str, Any]:

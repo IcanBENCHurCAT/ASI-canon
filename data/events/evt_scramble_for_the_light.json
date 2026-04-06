@@ -1,0 +1,19 @@
+{
+    "id": "evt_scramble_for_the_light",
+    "name": "The Scramble for the Light",
+    "timestamp": "Era of the King - Year 215",
+    "scope": "global",
+    "involved_entities": [
+        "char_elara",
+        "fac_resistance",
+        "fac_scrap_miners",
+        "loc_deep_ring",
+        "loc_aethelgard"
+    ],
+    "description": "As the Ring's lights flared back to life, previously uninhabitable sectors opened up. A massive, chaotic rush for resources ensued, pitting The Resistance against opportunistic Scrap Miners in the deep sectors.",
+    "themes": [
+        "Resource Scarcity",
+        "Chaos of Rebirth",
+        "Survival"
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "id": "evt_echoes_of_the_precursors",
+    "name": "Echoes of the Precursors",
+    "timestamp": "Pre-Silence Era - Year -10000",
+    "scope": "global",
+    "involved_entities": [
+        "loc_deep_ring"
+    ],
+    "description": "The ancient drive core is revealed to not be of human design. It is a remnant of the 'Architects', a precursor race that originally built the foundations of the Aethelgard Ring before humanity colonized it. The core was designed to process emotional and empathic energy, a technology humanity had buried.",
+    "themes": [
+        "Ancient Mystery",
+        "Precursors",
+        "True Purpose"
+    ]
+}

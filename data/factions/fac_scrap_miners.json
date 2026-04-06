@@ -1,0 +1,8 @@
+{
+    "id": "fac_scrap_miners",
+    "name": "The Scrap Miners",
+    "description": "Hardy scavengers operating in the deepest, most dangerous parts of the Ring. They are loyal to whoever pays, but mostly to each other.",
+    "leader_id": "char_jax",
+    "headquarters_id": "loc_deep_ring",
+    "current_status": "Active"
+}

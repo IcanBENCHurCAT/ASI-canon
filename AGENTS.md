@@ -22,6 +22,7 @@ The core API functions are located in `src/engine/api.py`:
 - `propose_character(character_data: Dict[str, Any])`
 - `propose_location(location_data: Dict[str, Any])`
 - `propose_lore(event_data: Dict[str, Any])`
+- `propose_faction(faction_data: Dict[str, Any])`
 - `query_canon(entity_id: str)`
 
 ## Schemas & Validation
@@ -32,6 +33,7 @@ Current major properties:
 - **Characters**: `status` (alive/dead), `archetype` (e.g. Reluctant Hero), `affiliations`, `birth_date`, `death_date`.
 - **Events**: `scope` (local/global), `involved_entities`, `themes` (e.g. Hope, Betrayal).
 - **Locations**: `type` (e.g. Space Station, Planet), `current_state`.
+- **Factions**: `description`, `leader_id`, `headquarters_id`, `current_status`.
 
 The validation layer (`src/engine/validation.py`) enforces immutable universe rules. For example, it prevents events from including characters whose status is `DEAD`.
 

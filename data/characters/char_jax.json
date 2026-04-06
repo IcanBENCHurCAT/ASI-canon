@@ -1,0 +1,16 @@
+{
+    "id": "char_jax",
+    "name": "Jax",
+    "status": "alive",
+    "location_id": "loc_deep_ring",
+    "affiliations": [
+        "The Scrap Miners"
+    ],
+    "core_memories": [
+        "Survived the toxic vents of Sector 4",
+        "Found strange alien debris near the core shaft"
+    ],
+    "archetype": "Scavenger",
+    "birth_date": "Era of the King - Year 185",
+    "death_date": null
+}
