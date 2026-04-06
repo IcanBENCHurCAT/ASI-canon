@@ -1,0 +1,16 @@
+{
+    "id": "char_vane",
+    "name": "Vane",
+    "status": "alive",
+    "location_id": "loc_aethelgard",
+    "affiliations": [
+        "The Silent Council"
+    ],
+    "core_memories": [
+        "Served as Malphas's left hand",
+        "Witnessed Elara corrupt the King with 'empathy'"
+    ],
+    "archetype": "Zealot / Loyalist",
+    "birth_date": "Era of the King - Year 150",
+    "death_date": null
+}

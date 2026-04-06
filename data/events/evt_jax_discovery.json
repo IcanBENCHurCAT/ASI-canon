@@ -1,0 +1,17 @@
+{
+    "id": "evt_jax_discovery",
+    "name": "Jax's Discovery in the Deep",
+    "timestamp": "Era of the King - Year 216",
+    "scope": "local",
+    "involved_entities": [
+        "char_jax",
+        "loc_deep_ring",
+        "fac_scrap_miners"
+    ],
+    "description": "While scavenging the newly opened deep sectors, Jax uncovered ancient glyphs matching the energy signature of Elara's drive core. This proved the Architects had left more than just one artifact hidden in the Ring.",
+    "themes": [
+        "Discovery",
+        "Ancient Secrets",
+        "The Plot Thickens"
+    ]
+}

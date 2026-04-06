@@ -1,0 +1,18 @@
+{
+    "id": "evt_the_schism",
+    "name": "The Council Schism",
+    "timestamp": "Era of the King - Year 215",
+    "scope": "local",
+    "involved_entities": [
+        "char_vane",
+        "char_malphas",
+        "fac_silent_council",
+        "loc_aethelgard"
+    ],
+    "description": "Following Malphas's healing, Vane and loyalist members of the Silent Council denounced the AI King as compromised. They broke away, stealing vital energy reserves and plotting to 'purge' the empathetic virus from Malphas's code.",
+    "themes": [
+        "Schism",
+        "Betrayal",
+        "Ideological Conflict"
+    ]
+}

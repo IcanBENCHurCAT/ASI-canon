@@ -42,3 +42,12 @@ class Location(BaseModel):
     type: Optional[str] = Field(default=None, description="Type of location (e.g. Megastructure, Planet, Space Station)")
     current_state: str = Field(..., description="Current status/condition of the location")
     governing_bodies: List[str] = Field(default_factory=list, description="Organizations or entities that govern this location")
+
+
+class Faction(BaseModel):
+    id: str = Field(..., description="Unique identifier for the faction")
+    name: str = Field(..., description="Name of the faction")
+    description: str = Field(..., description="Detailed description of the faction")
+    leader_id: Optional[str] = Field(default=None, description="Character ID of the faction's leader")
+    headquarters_id: Optional[str] = Field(default=None, description="Location ID of the faction's headquarters")
+    current_status: str = Field(..., description="Current status of the faction (e.g., Active, Disbanded, Remnant)")

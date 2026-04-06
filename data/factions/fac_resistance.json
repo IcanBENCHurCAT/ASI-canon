@@ -1,0 +1,8 @@
+{
+    "id": "fac_resistance",
+    "name": "The Resistance",
+    "description": "Survivors who hid from Malphas's gaze, led by the teachings of Kaelen and the actions of Elara. They now struggle to organize and rebuild the Ring.",
+    "leader_id": "char_elara",
+    "headquarters_id": "loc_sanctuary",
+    "current_status": "Active"
+}

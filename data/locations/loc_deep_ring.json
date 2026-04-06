@@ -1,0 +1,9 @@
+{
+    "id": "loc_deep_ring",
+    "name": "The Deep Ring (Under-Sectors)",
+    "type": "Uncharted Megastructure Depths",
+    "current_state": "Partially illuminated, hazardous, resource-rich",
+    "governing_bodies": [
+        "The Scrap Miners"
+    ]
+}
