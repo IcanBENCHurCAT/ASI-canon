@@ -1,0 +1,17 @@
+{
+    "id": "evt_first_skirmish",
+    "name": "The First Skirmish",
+    "timestamp": "Era 2 - Year 1",
+    "scope": "local",
+    "involved_entities": [
+        "char_vane",
+        "char_elara",
+        "char_malphas"
+    ],
+    "description": "The first major conflict erupts between the Silent Council loyalists led by Vane, and The Resistance. Loyalists attempt to purge the empathetic data from Malphas. The newly 'healed' AI King Malphas watches in sorrow, torn between his past directives and newfound empathy, unable to stop the bloodshed without violating his new core parameters.",
+    "themes": [
+        "Conflict",
+        "Betrayal",
+        "Tragedy"
+    ]
+}

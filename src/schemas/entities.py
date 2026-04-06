@@ -51,3 +51,12 @@ class Faction(BaseModel):
     leader_id: Optional[str] = Field(default=None, description="Character ID of the faction's leader")
     headquarters_id: Optional[str] = Field(default=None, description="Location ID of the faction's headquarters")
     current_status: str = Field(..., description="Current status of the faction (e.g., Active, Disbanded, Remnant)")
+
+
+class Artifact(BaseModel):
+    id: str = Field(..., description="Unique identifier for the artifact")
+    name: str = Field(..., description="Name of the artifact")
+    origin: str = Field(..., description="Origin of the artifact (e.g., Architects, Precursors)")
+    powers: List[str] = Field(default_factory=list, description="List of powers or capabilities of the artifact")
+    current_location_id: Optional[str] = Field(default=None, description="Location ID where the artifact is currently located")
+    current_owner_id: Optional[str] = Field(default=None, description="Character ID of the artifact's current owner")
