@@ -2,7 +2,7 @@ import json
 import os
 from typing import List, Dict, Any, Optional
 
-from src.schemas.entities import Character, Event, Location, Faction
+from src.schemas.entities import Character, Event, Location, Faction, Artifact
 
 # Use a getter for DATA_DIR so changes to os.environ are reflected in subsequent calls
 def get_data_dir() -> str:
@@ -103,6 +103,25 @@ def propose_faction(faction_data: Dict[str, Any]) -> Dict[str, Any]:
         "success": True,
         "faction_id": faction.id,
         "message": "Faction successfully integrated into Canon."
+    }
+
+def propose_artifact(artifact_data: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Propose a new artifact to be added to the canon.
+    """
+    artifact = Artifact(**artifact_data)
+
+    artifacts_dir = os.path.join(get_data_dir(), "artifacts")
+    os.makedirs(artifacts_dir, exist_ok=True)
+
+    filepath = os.path.join(artifacts_dir, f"{artifact.id}.json")
+    with open(filepath, "w") as f:
+        f.write(artifact.model_dump_json(indent=4))
+
+    return {
+        "success": True,
+        "artifact_id": artifact.id,
+        "message": "Artifact successfully integrated into Canon."
     }
 
 def propose_lore(event_data: Dict[str, Any]) -> Dict[str, Any]:

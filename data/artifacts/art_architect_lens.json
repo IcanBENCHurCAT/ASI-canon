@@ -1,0 +1,11 @@
+{
+    "id": "art_architect_lens",
+    "name": "The Architect's Lens",
+    "origin": "Architects",
+    "powers": [
+        "Temporal Viewing",
+        "Energy Manipulation"
+    ],
+    "current_location_id": "loc_deep_ring",
+    "current_owner_id": "char_jax"
+}
