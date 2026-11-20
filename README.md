@@ -14,21 +14,27 @@ The "Source of Truth" is file-based (JSON) allowing it to be tracked, diffed, an
 - `data/characters/`: Stores individual JSON files per character entity.
 - `data/events/`: Stores lore events globally tracking history.
 - `data/locations/`: Stores location data and its current state.
+- `data/factions/`: Stores faction profiles, leadership, and status.
+- `data/artifacts/`: Stores artifact origins, powers, locations, and owners.
 
 ### Entity Schemas
-We enforce strict typing using **Pydantic** in Python. Pydantic ensures data correctly adheres to our predefined models before getting saved to the file system.
-- **Characters:** Status (alive/dead), location, affiliations, core memories.
-- **Events:** Timestamp/Era, scope (global/local), involved entities.
-- **Locations:** Current state, governing bodies.
+We enforce strict typing using **Pydantic** (`src/schemas/entities.py`) in Python. Pydantic ensures data correctly adheres to our predefined models before getting saved to the file system.
+- **Characters:** Status (`alive`/`dead`/`unknown`), location, affiliations, core memories, archetype, birth/death dates.
+- **Events:** Timestamp/Era, scope (`global`/`local`), involved entities, description, themes.
+- **Locations:** Type, current state, governing bodies.
+- **Factions:** Description, leader ID, headquarters ID, current status.
+- **Artifacts:** Origin, powers, current location ID, current owner ID.
 
 ### The Canon Engine
-- **QueryCanon:** Allows an agent to fetch context (`src/engine/api.py`). It reads the file system state and returns matched entities.
-- **ProposeLore:** Allows an agent to submit a new event. It integrates a **Validation Layer** (`src/engine/validation.py`) to enforce immutable rules, such as preventing a `DEAD` character from participating in a new present-timeline event.
+All canon reads and writes go through `src/engine/api.py`:
+- **`query_canon(entity_id)`**: Allows an agent to fetch context by scanning events involving `entity_id` and returning matching `related_events`.
+- **`propose_lore(event_data)`**: Allows an agent to submit a new event. It integrates a **Validation Layer** (`src/engine/validation.py`, `validate_event_proposal`) to enforce immutable rules, such as preventing a `DEAD` character from participating in a new present-timeline event.
+- **`propose_character(character_data)`**, **`propose_location(location_data)`**, **`propose_faction(faction_data)`**, **`propose_artifact(artifact_data)`**: Validate payloads against their respective Pydantic models and write the entity JSON file under `data/`.
 
 ## Future Thoughts
-As the lore deepens, doing a basic text query over JSON files may slow down or become less accurate. We plan to integrate `QueryCanon` with a local graph database (e.g., Neo4j) to track complex character networks or a lightweight local vector store (e.g., ChromaDB) for semantic search over historical events.
+As the lore deepens, doing a basic text query over JSON files may slow down or become less accurate. We plan to integrate `query_canon` with a local graph database (e.g., Neo4j) to track complex character networks or a lightweight local vector store (e.g., ChromaDB) for semantic search over historical events.
 
 ## Getting Started
 1. `pip install -r requirements.txt`
-2. Define characters and events as `.json` in the `data/` directories.
-3. Use the functions in `src/engine/api.py` to interact with Canon.
+2. Define characters, locations, factions, artifacts, and events via the functions in `src/engine/api.py` (or inspect existing `.json` files in the `data/` directories).
+3. Run the test suite with `PYTHONPATH=. pytest`.
