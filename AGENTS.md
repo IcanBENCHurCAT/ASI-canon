@@ -13,6 +13,8 @@ The data for this universe is file-based and resides in the `data/` directory.
 - **`data/characters/`**: Individual JSON files for each character.
 - **`data/events/`**: Lore events globally tracking history.
 - **`data/locations/`**: Location data and current states.
+- **`data/factions/`**: Faction data, leadership, headquarters, and current statuses.
+- **`data/artifacts/`**: Artifact origins, powers, current locations, and current owners.
 
 ### Interacting with the Canon
 
