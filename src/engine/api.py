@@ -1,8 +1,40 @@
 import json
 import os
+import re
 from typing import List, Dict, Any, Optional
 
-from src.schemas.entities import Character, Event, Location, Faction, Artifact
+from src.schemas.entities import (
+    Character,
+    Event,
+    Location,
+    Faction,
+    Artifact,
+    ENTITY_ID_PATTERN,
+)
+
+_ENTITY_ID_RE = re.compile(ENTITY_ID_PATTERN)
+
+
+def _validate_entity_id(entity_id: str) -> str:
+    """Validate that an entity ID contains only safe filename characters."""
+    if not isinstance(entity_id, str) or not _ENTITY_ID_RE.fullmatch(entity_id):
+        raise ValueError(
+            f"Invalid entity ID {entity_id!r}: must match {ENTITY_ID_PATTERN}"
+        )
+    return entity_id
+
+
+def _safe_entity_path(subdir: str, entity_id: str) -> str:
+    """Resolve and verify an entity JSON path stays inside its data subdirectory."""
+    _validate_entity_id(entity_id)
+    base_dir = os.path.realpath(os.path.join(get_data_dir(), subdir))
+    target = os.path.realpath(os.path.join(base_dir, f"{entity_id}.json"))
+    if os.path.commonpath([base_dir, target]) != base_dir:
+        raise ValueError(
+            f"Entity path escapes base directory for {entity_id!r}"
+        )
+    return target
+
 
 # Use a getter for DATA_DIR so changes to os.environ are reflected in subsequent calls
 def get_data_dir() -> str:
@@ -18,16 +50,16 @@ def load_all_events() -> List[Event]:
     for filename in os.listdir(events_dir):
         if filename.endswith(".json"):
             filepath = os.path.join(events_dir, filename)
-            with open(filepath, "r") as f:
+            with open(filepath, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 events.append(Event(**data))
     return events
 
 
 def load_character(char_id: str) -> Optional[Character]:
-    filepath = os.path.join(get_data_dir(), "characters", f"{char_id}.json")
+    filepath = _safe_entity_path("characters", char_id)
     if os.path.exists(filepath):
-        with open(filepath, "r") as f:
+        with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
             return Character(**data)
     return None
@@ -54,11 +86,9 @@ def propose_character(character_data: Dict[str, Any]) -> Dict[str, Any]:
     """
     character = Character(**character_data)
 
-    chars_dir = os.path.join(get_data_dir(), "characters")
-    os.makedirs(chars_dir, exist_ok=True)
-
-    filepath = os.path.join(chars_dir, f"{character.id}.json")
-    with open(filepath, "w") as f:
+    filepath = _safe_entity_path("characters", character.id)
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(filepath, "w", encoding="utf-8") as f:
         f.write(character.model_dump_json(indent=4))
 
     return {
@@ -73,11 +103,9 @@ def propose_location(location_data: Dict[str, Any]) -> Dict[str, Any]:
     """
     location = Location(**location_data)
 
-    locs_dir = os.path.join(get_data_dir(), "locations")
-    os.makedirs(locs_dir, exist_ok=True)
-
-    filepath = os.path.join(locs_dir, f"{location.id}.json")
-    with open(filepath, "w") as f:
+    filepath = _safe_entity_path("locations", location.id)
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(filepath, "w", encoding="utf-8") as f:
         f.write(location.model_dump_json(indent=4))
 
     return {
@@ -92,11 +120,9 @@ def propose_faction(faction_data: Dict[str, Any]) -> Dict[str, Any]:
     """
     faction = Faction(**faction_data)
 
-    factions_dir = os.path.join(get_data_dir(), "factions")
-    os.makedirs(factions_dir, exist_ok=True)
-
-    filepath = os.path.join(factions_dir, f"{faction.id}.json")
-    with open(filepath, "w") as f:
+    filepath = _safe_entity_path("factions", faction.id)
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(filepath, "w", encoding="utf-8") as f:
         f.write(faction.model_dump_json(indent=4))
 
     return {
@@ -111,11 +137,9 @@ def propose_artifact(artifact_data: Dict[str, Any]) -> Dict[str, Any]:
     """
     artifact = Artifact(**artifact_data)
 
-    artifacts_dir = os.path.join(get_data_dir(), "artifacts")
-    os.makedirs(artifacts_dir, exist_ok=True)
-
-    filepath = os.path.join(artifacts_dir, f"{artifact.id}.json")
-    with open(filepath, "w") as f:
+    filepath = _safe_entity_path("artifacts", artifact.id)
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(filepath, "w", encoding="utf-8") as f:
         f.write(artifact.model_dump_json(indent=4))
 
     return {
@@ -141,11 +165,9 @@ def propose_lore(event_data: Dict[str, Any]) -> Dict[str, Any]:
         }
 
     # Write the event to repo if valid
-    events_dir = os.path.join(get_data_dir(), "events")
-    os.makedirs(events_dir, exist_ok=True)
-
-    filepath = os.path.join(events_dir, f"{event.id}.json")
-    with open(filepath, "w") as f:
+    filepath = _safe_entity_path("events", event.id)
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(filepath, "w", encoding="utf-8") as f:
         f.write(event.model_dump_json(indent=4))
 
     return {

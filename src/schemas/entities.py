@@ -2,6 +2,8 @@ from enum import Enum
 from typing import List, Optional
 from pydantic import BaseModel, Field
 
+ENTITY_ID_PATTERN = r"^[a-zA-Z0-9_-]+$"
+
 
 class Status(str, Enum):
     ALIVE = "alive"
@@ -10,7 +12,7 @@ class Status(str, Enum):
 
 
 class Character(BaseModel):
-    id: str = Field(..., description="Unique identifier for the character")
+    id: str = Field(..., pattern=ENTITY_ID_PATTERN, description="Unique identifier for the character")
     name: str = Field(..., description="Full name of the character")
     status: Status = Field(default=Status.ALIVE, description="Current living status")
     location_id: Optional[str] = Field(default=None, description="Current location ID of the character")
@@ -27,7 +29,7 @@ class EventScope(str, Enum):
 
 
 class Event(BaseModel):
-    id: str = Field(..., description="Unique identifier for the event")
+    id: str = Field(..., pattern=ENTITY_ID_PATTERN, description="Unique identifier for the event")
     name: str = Field(..., description="Name of the event")
     timestamp: str = Field(..., description="Timestamp or Era in the universe timeline")
     scope: EventScope = Field(default=EventScope.LOCAL, description="Scope of the event's impact")
@@ -37,7 +39,7 @@ class Event(BaseModel):
 
 
 class Location(BaseModel):
-    id: str = Field(..., description="Unique identifier for the location")
+    id: str = Field(..., pattern=ENTITY_ID_PATTERN, description="Unique identifier for the location")
     name: str = Field(..., description="Name of the location")
     type: Optional[str] = Field(default=None, description="Type of location (e.g. Megastructure, Planet, Space Station)")
     current_state: str = Field(..., description="Current status/condition of the location")
@@ -45,7 +47,7 @@ class Location(BaseModel):
 
 
 class Faction(BaseModel):
-    id: str = Field(..., description="Unique identifier for the faction")
+    id: str = Field(..., pattern=ENTITY_ID_PATTERN, description="Unique identifier for the faction")
     name: str = Field(..., description="Name of the faction")
     description: str = Field(..., description="Detailed description of the faction")
     leader_id: Optional[str] = Field(default=None, description="Character ID of the faction's leader")
@@ -54,7 +56,7 @@ class Faction(BaseModel):
 
 
 class Artifact(BaseModel):
-    id: str = Field(..., description="Unique identifier for the artifact")
+    id: str = Field(..., pattern=ENTITY_ID_PATTERN, description="Unique identifier for the artifact")
     name: str = Field(..., description="Name of the artifact")
     origin: str = Field(..., description="Origin of the artifact (e.g., Architects, Precursors)")
     powers: List[str] = Field(default_factory=list, description="List of powers or capabilities of the artifact")
